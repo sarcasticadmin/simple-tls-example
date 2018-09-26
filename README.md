@@ -79,13 +79,13 @@ cd sign-cert1
 Copy in `csr` that was generated:
 
 ```sh
-vim coolapi.csr
+cp ../../cert1/coolapi.csr .
 ```
 
 Generate the `crt` for `coolapi.nebulaworks.com`:
 
 ```sh
-cfssl sign -hostname=coolapi.nebulaworks.com -ca=../ca.pub -ca-key=../ca.priv ./coolapi.csr | cfssljson -bare coolapi
+cfssl sign -ca=../ca.pub -ca-key=../ca.priv ./coolapi.csr | cfssljson -bare coolapi
 mv coolapi.pem coolapi.crt
 ```
 
